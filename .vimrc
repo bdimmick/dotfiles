@@ -1,15 +1,31 @@
 execute pathogen#infect()
 
 set ignorecase
+set hlsearch
+set incsearch
+set showmatch
+
 set noerrorbells
 set novisualbell
-set ruler
+
 set tabstop=2
+set shiftwidth=2
+
+set autoindent
+set copyindent
 set expandtab
 
+set nobackup
+set noswapfile
+
+set cursorline
+
+set wildmenu
+
 syntax enable
-"colorscheme evening
+
 colorscheme molokai
+"colorscheme badwolf
 
 set t_Co=256
 set laststatus=2
