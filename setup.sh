@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-dotfiles=(.vim .vimrc)
+dotfiles=(.bash_profile .vim .vimrc)
 
 for dotfile in ${dotfiles[*]}; do
   src=`pwd`/$dotfile
@@ -17,7 +17,11 @@ for dotfile in ${dotfiles[*]}; do
       echo "INFO : backed up $target to $to" 
    fi
    ln -s $src $target
-    echo "INFO : linked $src to $target"
+   echo "INFO : linked $src to $target"
+    if [ $dotfile == ".bash_profile" ]; then
+      echo "INFO : reloading .bash_profile"
+      source ~/.bash_profile
+    fi
   else
     echo "ERROR: source $src not found!"
   fi
