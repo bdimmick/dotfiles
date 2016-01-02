@@ -8,6 +8,17 @@ if [ $os == "Darwin" ]; then
   done
 fi
 
+function self-signed() {
+  CN=$1
+  if [ -z "$CN" ]; then
+    CN=$HOSTNAME
+  fi
+  echo "Making self-signed x.509 certificate for '$CN'"
+   
+  openssl req -x509 -newkey rsa:2048 -keyout $CN.key -out $CN.cert -days 30 -nodes \
+    -sha256 -subj "/C=US/ST=Washington/L=Seattle/O=hexagrammatic.com/OU=internal/CN=$CN"
+}
+
 if [ -e ~/.bash_profile.local ]; then
   source ~/.bash_profile.local
 fi
