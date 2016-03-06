@@ -19,6 +19,24 @@ function self-signed() {
     -sha256 -subj "/C=US/ST=Washington/L=Seattle/O=hexagrammatic.com/OU=internal/CN=$CN"
 }
 
+function update-dotfiles() {
+  PROFILE=`readlink ~/.bash_profile`
+  pushd `dirname $PROFILE`
+  git pull
+  ./setup.sh
+  popd
+}
+
+function push-dotfiles() {
+  PROFILE=`readlink ~/.bash_profile`
+  WHEN=`date`
+  WHERE=`hostname`
+  pushd `dirname $PROFILE`
+  git commit -a -m "push-dotfiles from $WHERE on $WHEN"
+  git push origin master
+  popd
+}
+
 if [ -e ~/.bash_profile.local ]; then
   source ~/.bash_profile.local
 fi
