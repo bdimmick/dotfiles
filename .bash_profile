@@ -1,4 +1,7 @@
 export PS1="\[\e[35m\][\[\e[m\]\[\e[36m\]\d\[\e[m\] \[\e[36m\]\@\[\e[m\]\[\e[35m\]]\[\e[m\] \[\e[32m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\] \[\e[1;34m\]\W\[\e[m\]\\$  "
+export LSCOLORS=EagagehecaFadahBgBEBEB
+
+alias ls="ls -pG"
 
 os=`uname`
 
