@@ -2,6 +2,8 @@
 
 dotfiles=(.bash_profile .vim .vimrc)
 
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 for dotfile in ${dotfiles[*]}; do
   src=`pwd`/$dotfile
   if [ -e $src ]; then
