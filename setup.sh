@@ -11,12 +11,14 @@ for dotfile in ${dotfiles[*]}; do
     if [ -L $target ]; then
       rm $target
     else
-      backup=backup
-      mkdir -p $backup
-      timestamp=`date +%s`
-      to=`pwd`/$backup/$dotfile.$timestamp
-      mv $target $to
-      echo "INFO : backed up $target to $to" 
+      if [ -e $target ]; then
+        backup=backup
+        mkdir -p $backup
+        timestamp=`date +%s`
+        to=`pwd`/$backup/$dotfile.$timestamp
+        mv $target $to
+        echo "INFO : backed up $target to $to" 
+      fi
    fi
    ln -s $src $target
    echo "INFO : linked $src to $target"
