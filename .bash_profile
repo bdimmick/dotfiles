@@ -9,6 +9,13 @@ if [ $os == "Darwin" ]; then
   for bin in `find ~/Applications -name bin`; do
     export PATH=$PATH:$bin
   done
+
+  # Find the latest Java version and set JAVA_HOME
+  JAVA_VERSION=`ls /Library/Java/JavaVirtualMachines | sort | tail -1`
+  if [ ! -z "${JAVA_VERSION}" ]; then
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/${JAVA_VERSION}Contents/Home"
+  fi
+
 fi
 
 function self-signed() {
