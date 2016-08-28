@@ -47,6 +47,10 @@ function push-dotfiles() {
   popd
 }
 
+function public-ip {
+  curl "http://ipinfo.io/ip"
+}
+
 if [ -e ~/.bash_profile.local ]; then
   source ~/.bash_profile.local
 fi
