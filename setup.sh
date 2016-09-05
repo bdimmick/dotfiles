@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-dotfiles=(.bash_profile .vim .vimrc)
+dotfiles=(.bash_profile .gitconfig .vim .vimrc)
 
 cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
