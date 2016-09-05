@@ -1,0 +1,4 @@
+[user]
+	email = me@billdimmick.com
+[core]
+	autocrlf = input
